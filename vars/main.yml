@@ -12,7 +12,7 @@ install_files:
   - owner:              'root'
     group:              'root'
     mode:               '0600'
-    src:                "{{ role_path }}/../../../../sensitive/ansible/roles/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key"
+    src:                "{{ role_path }}/../../../sensitive_ansible/roles/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key"
     dest:               '/etc/ssh/ssh_host_rsa_key'
 lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
