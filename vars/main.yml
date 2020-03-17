@@ -45,7 +45,10 @@ lines_in_files:
     regexp:             '^PermitRootLogin '
   - dest:               '/etc/ssh/sshd_config'
     line:               'Port                            22'
-    regexp:             '^Port '
+    regexp:             "^Port (?![^#]*# unique)"
+  - dest:               '/etc/ssh/sshd_config'
+    line:               "Port                            {{ ssh_unique_port }} # unique port"
+    regexp:             "^Port [^#]*# unique"
   - dest:               '/etc/ssh/sshd_config'
     line:               'PrintLastLog                    no'
     regexp:             '^PrintLastLog '
