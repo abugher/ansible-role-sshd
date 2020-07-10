@@ -47,9 +47,6 @@ lines_in_files:
     line:               'Port                            22'
     regexp:             "^Port (?![^#]*# unique)"
   - dest:               '/etc/ssh/sshd_config'
-    line:               "Port                            {{ ssh_unique_port }} # unique port"
-    regexp:             "^Port [^#]*# unique"
-  - dest:               '/etc/ssh/sshd_config'
     line:               'PrintLastLog                    no'
     regexp:             '^PrintLastLog '
   - dest:               '/etc/ssh/sshd_config'
@@ -88,3 +85,7 @@ lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
     line:               'X11UseLocalhost                 no'
     regexp:             '^X11UseLocalhost '
+lines_in_files_unique_port:
+  - dest:               '/etc/ssh/sshd_config'
+    line:               "Port                            {{ ssh_unique_port }} # unique port"
+    regexp:             "^Port [^#]*# unique"
