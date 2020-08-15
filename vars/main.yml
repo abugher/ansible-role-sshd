@@ -1,4 +1,6 @@
 ---
+remove_packages:
+  - 'raspberrypi-sys-mods' # This package replaces the SSH host key.
 restart_services:
   - 'ssh'
 install_files:
