@@ -1,19 +1,6 @@
 ---
 remove_packages:
   - 'raspberrypi-sys-mods' # This package replaces the SSH host key.
-restart_services:
-  - 'ssh'
-install_files:
-  - owner:              'root'
-    group:              'root'
-    mode:               '0644'
-    src:                "{{ role_path }}/../../inventory/hosts/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key.pub"
-    dest:               '/etc/ssh/ssh_host_rsa_key.pub'
-  - owner:              'root'
-    group:              'root'
-    mode:               '0600'
-    src:                "{{ role_path }}/../../../sensitive_ansible/inventory/hosts/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key"
-    dest:               '/etc/ssh/ssh_host_rsa_key'
 lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
     line:               'Banner                          /etc/banner.txt'
@@ -91,3 +78,16 @@ lines_in_files_unique_port:
   - dest:               '/etc/ssh/sshd_config'
     line:               "Port                            {{ ssh_unique_port }} # unique port"
     regexp:             "^Port [^#]*# unique"
+install_files:
+  - owner:              'root'
+    group:              'root'
+    mode:               '0644'
+    src:                "{{ role_path }}/../../inventory/hosts/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key.pub"
+    dest:               '/etc/ssh/ssh_host_rsa_key.pub'
+  - owner:              'root'
+    group:              'root'
+    mode:               '0600'
+    src:                "{{ role_path }}/../../../sensitive_ansible/inventory/hosts/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key"
+    dest:               '/etc/ssh/ssh_host_rsa_key'
+restart_services:
+  - 'ssh'
