@@ -24,6 +24,9 @@ lines_in_files:
     line:               'IgnoreRhosts                    yes'
     regexp:             '^IgnoreRhosts '
   - dest:               '/etc/ssh/sshd_config'
+    line:               'RhostsRSAAuthentication         no'
+    regexp:             '^RhostsRSAAuthentication '
+  - dest:               '/etc/ssh/sshd_config'
     line:               'LogLevel                        INFO'
     regexp:             '^LogLevel '
   - dest:               '/etc/ssh/sshd_config'
@@ -77,6 +80,9 @@ lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
     line:               'X11UseLocalhost                 no'
     regexp:             '^X11UseLocalhost '
+  - dest:               '/etc/ssh/sshd_config'
+    line:               'UseDNS                          no'
+    regexp:             '^UseDNS '
 lines_in_files_unique_port:
   - dest:               '/etc/ssh/sshd_config'
     line:               "Port                            {{ ssh_unique_port }} # unique port"
