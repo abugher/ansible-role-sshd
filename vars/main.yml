@@ -70,7 +70,7 @@ lines_in_files:
     regexp:             '^ClientAliveCountMax '
   - dest:               '/etc/ssh/sshd_config'
     line:               'UsePAM                          yes'
-    regexp:             '^UsePAM '
+    regexp:             '^UseP[Aa][Mm] '
   - dest:               '/etc/ssh/sshd_config'
     line:               'X11DisplayOffset                10'
     regexp:             '^X11DisplayOffset '
@@ -83,9 +83,8 @@ lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
     line:               'UseDNS                          no'
     regexp:             '^UseDNS '
-lines_in_files_unique_port:
   - dest:               '/etc/ssh/sshd_config'
-    line:               "Port                            {{ ssh_unique_port }} # unique port"
+    line:               "Port                            {{ ssh_unique_port | default(22) }} # unique port"
     regexp:             "^Port [^#]*# unique"
 install_files:
   - owner:              'root'

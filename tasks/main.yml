@@ -1,10 +1,6 @@
 ---
 - include:              '../tasks/remove_packages.yml'
 - include:              '../tasks/lines_in_files.yml'
-- include:              '../tasks/lines_in_files.yml'
-  vars:
-    lines_in_files:     "{{ lines_in_files_unique_port }}"
-  when:                 ssh_unique_port is defined
 - include:              '../tasks/install_files.yml'
 - include:              '../tasks/restart_services.yml'
   when:                 install_files_result.changed
