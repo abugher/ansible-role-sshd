@@ -1,7 +1,11 @@
 ---
 - include:              '../tasks/remove_packages.yml'
+- command:              chattr -i /etc/ssh/ssh_host_rsa_key
+- command:              chattr -i /etc/ssh/ssh_host_rsa_key.pub
 - include:              '../tasks/lines_in_files.yml'
 - include:              '../tasks/install_files.yml'
+- command:              chattr +i /etc/ssh/ssh_host_rsa_key
+- command:              chattr +i /etc/ssh/ssh_host_rsa_key.pub
 - include:              '../tasks/restart_services.yml'
   when:                 install_files_result.changed
                         or lines_in_files_result.changed
