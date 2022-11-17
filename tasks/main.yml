@@ -1,5 +1,6 @@
 ---
 - include:              '../tasks/remove_packages.yml'
+- include:              '../tasks/install_packages.yml'
 - command:              chattr -i /etc/ssh/ssh_host_rsa_key
 - command:              chattr -i /etc/ssh/ssh_host_rsa_key.pub
 - include:              '../tasks/lines_in_files.yml'

@@ -4,6 +4,8 @@ remove_packages:
   - 'raspberrypi-sys-mods'
   - 'armbian-config'
   - 'linux-buster-root-legacy-odroidxu4'
+install_packages:
+  - 'openssh-server'
 lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
     line:               'Banner                          /etc/banner.txt'
