@@ -97,7 +97,7 @@ install_files:
   - owner:              'root'
     group:              'root'
     mode:               '0600'
-    src:                "{{ role_path }}/../../../sensitive_ansible/inventory/hosts/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key"
+    src:                "{{ role_path }}/../../../sensitive-ansible/inventory/hosts/{{ inventory_hostname }}/files/ssh_keys/ssh_host_rsa_key"
     dest:               '/etc/ssh/ssh_host_rsa_key'
 restart_services:
   - 'ssh'
