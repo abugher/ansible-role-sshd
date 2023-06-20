@@ -1,4 +1,14 @@
 ---
+dependencies:
+  # Refer to:  /usr/share/doc/openssh-server/README.Debian.gz
+  # systemd can imitate inetd instead of starting an sshd daemon process.  It
+  # reads sshd_config but ignores port specifications.  Ports can be specified
+  # elsewhere.  If the ssh service is restarted, the real service gets loaded,
+  # meaning the system will break without configuration in two redundant
+  # locations.  It should be off by default, but on backup, as of the first
+  # half of 2023, it gets turned on.  I could potentially figure out why, and
+  # maybe one day I will.  Until then, I know how to make this problem go away.
+  - 'no-systemd'
 remove_packages:
   # Packages that replace SSH keys:
   - 'raspberrypi-sys-mods'
