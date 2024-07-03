@@ -42,7 +42,9 @@ lines_in_files:
     line:               'LogLevel                        INFO'
     regexp:             '^LogLevel '
   - dest:               '/etc/ssh/sshd_config'
-    line:               'LoginGraceTime                  120'
+    # CVE-2024-6387 mitigation
+    #line:               'LoginGraceTime                  120'
+    line:               'LoginGraceTime                  0'
     regexp:             '^LoginGraceTime '
   - dest:               '/etc/ssh/sshd_config'
     line:               'PermitEmptyPasswords            no'
