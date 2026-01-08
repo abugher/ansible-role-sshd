@@ -41,15 +41,12 @@ lines_in_files:
   - dest:               '/etc/ssh/sshd_config'
     line:               'LogLevel                               INFO'
     regexp:             '^LogLevel '
-# CVE-2024-6387 mitigation
   - dest:               '/etc/ssh/sshd_config'
-    #line:               'LoginGraceTime                         120'
-    line:               'LoginGraceTime                         0'
+    line:               'LoginGraceTime                         120'
     regexp:             '^LoginGraceTime '
   - dest:               '/etc/ssh/sshd_config'
     line:               'MaxStartups                            100'
     regexp:             '^MaxStartups '
-# /CVE-2024-6387 mitigation
   - dest:               '/etc/ssh/sshd_config'
     line:               'PermitEmptyPasswords                   no'
     regexp:             '^PermitEmptyPasswords '
